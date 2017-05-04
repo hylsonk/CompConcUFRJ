@@ -7,14 +7,14 @@ class Consumidor extends Thread{
     }
     public void run(){
         for (int i = 0; i< Main.N; i++){
-            MostraMsg("quer consumir");
+            MostraMsg(" quer consumir");
             int valor = 0;
             try {
                 valor = Main.buff.withdraw();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            MostraMsg("consumiu "+valor);
+            MostraMsg(" consumiu "+valor);
         }
     }
 

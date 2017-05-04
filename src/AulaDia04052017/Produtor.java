@@ -7,13 +7,13 @@ class Produtor extends Thread{
     }
     public void run(){
         for (int i = 0; i<Main.N; i++){
-            MostraMsg("quer colocar");
+            MostraMsg(" quer colocar");
             try {
                 Main.buff.deposit(id*Main.N+1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            MostraMsg("colocou");
+            MostraMsg(" colocou");
         }
     }
 
