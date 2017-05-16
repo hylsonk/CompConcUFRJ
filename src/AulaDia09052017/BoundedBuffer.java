@@ -38,7 +38,7 @@ public class BoundedBuffer {
         }
     }
 
-    public int withdraw() throws InterruptedException{
+    public void withdraw() throws InterruptedException{
         mutex.lock();
         try{
             while(fullSlots == 0){
@@ -46,7 +46,7 @@ public class BoundedBuffer {
             }
             int value = buffer[out];
             out = (out+1)%capacity;
-            fullSlots
+            fullSlots--;
             notFull.signal();
         }finally {
             mutex.unlock();

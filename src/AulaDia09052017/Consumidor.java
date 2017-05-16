@@ -10,7 +10,7 @@ class Consumidor extends Thread{
             MostraMsg(" quer consumir");
             int valor = 0;
             try {
-                valor = Main.buff.withdraw();
+                Main.buff.withdraw();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

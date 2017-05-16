@@ -14,16 +14,24 @@ public class Filosofo extends Thread{
         this.id = id;
     }
 
-    void run(){
+    public void run(){
         for (int i = 0; i<NumVezes; i++){
             msg("Pensando");
             EsperaAleat(100);
             msg("Quer comer");
-            princ.mesa.QueroComer(id);
+            try {
+                Main.mesa.QueroComer(id);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             msg("Comendo");
             EsperaAleat(100);
             msg("Acabou de comer");
-            princ.mesa.AcabeiDeComer();
+            try {
+                Main.mesa.AcabeiDeComer(id);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
     }
