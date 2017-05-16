@@ -8,6 +8,7 @@ public class MesaJantar extends MonitorSC {
     final int Pensando = 0;  final int ComFome = 1;  final int Comendo = 2;
     private int [] Estado;
     private CondVar [] PodeComer;
+
     public MesaJantar ( int N ){
         NumFil = N; Estado = new int[N]; PodeComer = new CondVar[N];
         for (int i=0;i<N;i++) {
