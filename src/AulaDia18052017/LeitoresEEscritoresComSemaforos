@@ -1,0 +1,54 @@
+Semaphore mutex = new Semaphore(1);
+Semaphore FilaLe = new Semaphore(0);
+Semaphore FilaEsc = new Semaphore(0);
+
+int EspLe = 0;
+int Lendo = 0;
+int EspEsc = 0;
+int Escrevendo = 0;
+
+Leitor:
+    mutex.P();
+    if(Escrevendo>0){
+        EspLe++;
+        FilaLe.VP(mutex);
+    }
+    Lendo++;
+    if(EspLe>0){
+        EspLe--;
+        FilaLe.V();
+    }else{
+        mutex.V();
+    }
+    //Leitura....
+    mutex.P();
+    Lendo--;
+    if((Lendo==0)&&(EspEsc>0)){
+        EspEsc--;
+        FilaEsc.V();
+    }else{
+        mutex.V();
+    }
+
+Escritor:
+    mutex.P();
+    if(Escrevendo+Lendo>0){
+        EspEsc++;
+        FilaEsc.VP(mutex);
+    }
+    Escrevendo++;
+    mutex.V();
+    //Escrevendo....
+    mutex.P();
+    Escrevendo--;
+    if(EspLe>0){
+        EspLe--;
+        FilaLe.V();
+    }
+    else if(EspEsc>0){
+        EspEsc--;
+        FilaEsc.V();
+    }
+    else{
+        mutex.V();
+    }
