@@ -1,0 +1,8 @@
+channel Pedido = new channel();
+channel Resposta = new channel();
+
+T1:(Cliente)                                T2:(Servidor)
+Pedido.send(MeuPedido);                     UmPedido = Pedido.receive();
+                                            ...........
+                                            Resposta.send(UmaResposta);
+MinhaResposta = Resposta.receive();
