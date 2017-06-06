@@ -1,0 +1,9 @@
+                                Entry E;
+                                repete{
+                                    E.accept(pedido, resultado)
+E.call(pedido, resultado)           // Calcula e produz resultado
+                                }
+
+E.call(pedido, resultado)===>>>
+request.send(pedido); --> Port
+resultado = reply.receive(); --> Link
