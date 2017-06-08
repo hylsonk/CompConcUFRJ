@@ -1,0 +1,44 @@
+Canais: mail, port , link ====>> usam semaforos
+Entry ====>> usa port, lnk
+Cliente, Servidor ===>> usam Entry
+
+while(true){
+    if(buffer não cheio){
+        item = deposit.acceptAndReply(); .......
+    }
+    if(buffer não vazio){
+        withdraw.accept();
+        ........
+        withdraw.reply(item);
+    }
+
+}
+
+when{
+    case(exp.boolean):instruc-list;break;
+    case(exp.boolean): .....
+    case
+    case
+}
+
+select{
+    case (Não cheio), m = E1.accept():isnst;isnst; .... break;
+    case (Não vazio), m = E2.accept():isnst;isnst; .... break;
+}
+
+deposito.guarda(posOcup<TamBuf)
+retirada.guarda(posOcup>0)
+
+switch(select.choose){
+    case 1: m = deposito.acceptAndReply();...... break;
+    case 2: m = retirada.accept(); ........... break;
+    case 3:
+}
+
+SelectiveWait select = new SelectiveWait();
+
+SelectableEntry deposito = new SelectableEntry():
+SelectableEntry retirada = new SelectableEntry():
+
+select.add(deposito);
+select.add(retirada)
